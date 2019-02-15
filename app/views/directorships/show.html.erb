@@ -1,0 +1,35 @@
+<p>
+  <strong>Name:</strong>
+  <%= @directorship.name %>
+</p>
+
+<p>
+  <strong>Director:</strong>
+  <%= User.find(@directorship.director).name %>
+</p>
+
+<% @directorship.directorship_goals.each do |goal| %>
+  <%= goal.title %> |
+  <%= goal.status %> |
+  <%= goal.description %> |
+  <%= link_to 'Pagina da meta', show_directorshipgoal_path(:id => goal.id) %>
+  <table>
+    <thead>
+      <th>Tarefa:</th>
+      <th>Status:</th>
+      <th>Designada a:</th>
+    </thead>
+    <% goal.directorship_tasks.each do |task| %>
+      <tr>
+        <td><%= task.description %></td>
+        <td><%= task.status %></td>
+        <td><%= task.user.name %></td>
+      </tr>
+    <%end%>
+  <table>
+<%end%>
+
+<%= link_to  "Criar nova Meta", directorshipgoal_path(:id => @directorship.id) %>
+
+<%= link_to 'Edit', edit_directorship_path(@directorship) %> |
+<%= link_to 'Back', directorships_path %>

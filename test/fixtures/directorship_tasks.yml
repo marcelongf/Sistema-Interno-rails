@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  directorship_goal: one
+  user: one
+  status: false
+  description: MyText
+
+two:
+  directorship_goal: two
+  user: two
+  status: false
+  description: MyText

@@ -1,0 +1,28 @@
+<%= form_with(model: directorship, local: true) do |form| %>
+  <% if directorship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(directorship.errors.count, "error") %> prohibited this directorship from being saved:</h2>
+
+      <ul>
+      <% directorship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :director %>
+    <%= form.select :director, directors %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

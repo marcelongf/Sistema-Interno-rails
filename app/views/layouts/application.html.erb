@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projeto final</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <% if user_signed_in? %>
+        <nav>
+          <%= link_to  "Perfil", current_user %>
+          <%= link_to  "Fórum", posts_path %>
+          <%= link_to  "Artigos", articles_path %>
+          <% if current_user.kind == 'cell_manager' || 'pmo_manager' %>
+            <%= link_to  "Células", cells_path %>
+          <%end%>
+          <% if current_user.kind == 'director' || 'project_director' || 'gp_director' %>
+            <%= link_to  "Diretorias", directorships_path %>
+            <%= link_to  "Células", cells_path %>
+          <%end%>
+          <% if current_user.kind == 'gp_director' %>
+            <%= link_to  "Usuários", users_path %>
+          <%end%>
+          <% if current_user.kind == 'pmo_manager' || 'project_director' %>
+            <%= link_to  "Projetos", projects_path %>
+          <%end%>
+        </nav>
+      <%end%>
+    </header>
+    <% if user_signed_in? %>
+      <%= link_to  "Log-out", destroy_user_session_path(current_user.id), method: :delete %>
+    <%end%>
+
+
+    <%= yield %>
+
+    <footer>
+    </footer>
+
+    <a href="#" class="go-top"><%= image_tag 'up-arrow.svg', class: 'img-responsive' %></a>
+    
+  </body>
+</html>

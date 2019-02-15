@@ -1,0 +1,18 @@
+<%= form_tag create_directorshipgoal_path do %>
+    <div class='field'>
+        Titulo:<%= text_field_tag :title %>
+    </div>
+    <div class='field'>
+        Descrição:<%= text_area_tag :description %>
+    </div>
+
+    <%= hidden_field_tag :status, false %>
+
+    <%= hidden_field_tag :directorship_id, @directorship.id %>
+
+    <div class='action'>
+        <%= submit_tag %>
+    </div>
+<% end %>
+
+<%= link_to  "Voltar", directorship_path(:id => params[:id]) %>

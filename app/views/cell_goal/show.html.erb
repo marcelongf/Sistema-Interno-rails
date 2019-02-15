@@ -1,0 +1,57 @@
+<h2><%= @cellGoal.title %></h2>
+
+<p>
+    <%= @cellGoal.description %>
+</p>
+
+<% if @cellGoal.status %>
+    <h4>Status: Finalizada</h4>
+<%else%>
+    <h4>Status: Em Andamento</h4>
+<%end%>
+
+<table>
+    <thead>
+        <th>Tarefa:</th>
+        <th>Status:</th>
+        <th>Designada a:</th>
+    </thead>
+    <tbody>
+        <% @cellGoal.cell_tasks.each do |task| %>
+            <tr>
+                <td><%= task.description %></td>
+                <td><%= task.status %></td>
+                <td><%= task.user.name %></td>
+            </tr>
+        <%end%>
+    </tbody>
+</table>
+
+<h3>Adicionar nova Tarefa:</h3>
+
+<% cell_task = @cellTask %>
+<%= form_with(url: new_cell_task_path) do |form| %>
+
+  <div class="field">
+    Descrição:<%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :cell_goal_id, :value => @cellGoal.id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :status, :value => false %>
+  </div>
+
+  <div class="field">
+    Designar para:<%= form.select :user_id, @users %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Voltar', cell_path(:id => @cellGoal.cell.id) %>
+

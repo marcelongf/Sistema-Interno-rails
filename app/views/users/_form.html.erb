@@ -1,0 +1,46 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  Tipo de usuário:
+  <%= select(:user, :kind, [
+    ['Assessor', 'member'],
+    ['Diretor de GP', 'gp_director'],
+    ['Diretor', 'director'],
+    ['Diretor de Projeto', 'project_director'],
+    ['Gerente de PMO', 'pmo_manager'],
+    ['Gerente de celula', 'cell_manager']
+  ]) %>
+  <br/>
+
+
+  Célula:
+  <%= select(:user, :cell_id, cells) %>
+
+  <br/>
+  Diretoria:
+  <%= select(:user, :directorship_id, dirs) %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

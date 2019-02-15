@@ -1,0 +1,63 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @user.kind %>
+</p>
+
+<p>
+  <strong>Célula atual:</strong>
+  <%= @user.cell.name %>
+</p>
+
+<p>
+  <strong>Directoria atual:</strong>
+  <%= @user.directorship.name %>
+</p>
+
+<h4>Projetos em Andamento:</h4>
+<table>
+  <thead>
+    <th>Projeto</th>
+    <th>Descrição</th>
+    <th>Criado em</th>
+  <thead>
+  <tbody>
+    <% @user_projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.description %></td>
+        <td><%= project.created_at %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<h4>Projetos já Acabados:</h4>
+<table>
+  <thead>
+    <th>Projeto</th>
+    <th>Descrição</th>
+    <th>Criado em</th>
+  <thead>
+  <tbody>
+    <% @user_ex_projects.each do |project| %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><%= project.description %></td>
+        <td><%= project.created_at %></td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+<br/>
+
+<%= link_to  "Arvore de habilidade", skilltree_path(:id => @user.id) %>
+
+<br/>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

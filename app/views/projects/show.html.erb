@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pmo:</strong>
+  <%= @project.pmo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @project.title %>
+</p>
+
+<% if current_user.kind == 'pmo_manager' || 'project_director' || 'cell_manager' %>
+  <h3> Adicionar novo membro </h3>
+  <%= form_with new_member_path do |form| %>
+    <%= form.select :user, @select_users %>
+  <%end%>
+<%end%>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

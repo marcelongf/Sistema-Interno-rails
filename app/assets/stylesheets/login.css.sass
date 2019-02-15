@@ -1,0 +1,73 @@
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+$blue-1: #4E99CE
+$blue-2: #233E50
+$white: #fafafa
+$black: #333
+
+body, html 
+    background-color: $white
+
+@font-face 
+    font-family: 'Ikaros'
+    src: font-url('Ikaros-Regular.otf')
+
+.logo-image
+    text-align: center
+
+.text
+    margin: 0 auto
+    text-align: center
+    font-family: 'Ikaros'
+    color: $black
+    text-transform: lowercase
+    position: relative
+    z-index: 3
+    width: 60px
+    padding: 20px 0px
+
+.text::after
+    content: ""
+    height: 14px
+    width: 65px
+    position: absolute
+    background: #4E99CE
+    z-index: -1
+    top: 32px
+    display: block
+
+.form
+    font-family: 'Ikaros'
+    font-size: 1.5em
+    background-color: #233E50
+    border-radius: 56px
+    width: 465px
+    padding: 40px
+    margin: 0 auto
+
+    label
+        color: $white
+
+    .text-input
+        margin: 10px
+
+        input
+            width: 100%
+
+    .remember-me
+        text-align: center
+        margin: 10px
+
+    .button
+        text-align: center
+
+        input
+            background-color: $blue-1
+            border-radius: 29px
+            color: $white
+            padding: 5px 35px
+
+    .forgot-password
+        text-align:center
+        margin: 10px
