@@ -12,21 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :pmo %>
-    <%= form.select :pmo, pmos %>
+    <div class="form-group">
+      <label for="sel1"><%= form.label :pmo, "Pmo"%></label>
+        <select class="form-control" id="sel1">
+          <%= form.select :pmo, pmos %>
+        </select>
+    </div>    
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <div class="form-group">
+      <label for="comment"><%= form.label :description, "Descrição" %></label>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <div class="form-group">
+      <label for="inputsm"><%= form.label :title, "Título" %></label></br>
+        <%= form.text_field :title %>
+      </label>
+    </div>
+    
+    
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+      <%= form.submit value: "Criar", class: "btn btn-primary" %>
   </div>
 <% end %>
