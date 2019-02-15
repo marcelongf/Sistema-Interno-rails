@@ -1,31 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="container container-img-footprint">
+  <p id="notice"><%= notice %></p>
+  <h1 class="h1-cells">Células</h1>
 
-<h1>Cells</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Manager</th>
-      <th>Directorship</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cells.each do |cell| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= cell.name %></td>
-        <td><%= cell.manager %></td>
-        <td><%= cell.directorship.name %></td>
-        <td><%= link_to 'Show', cell %></td>
-        <td><%= link_to 'Edit', edit_cell_path(cell) %></td>
-        <td><%= link_to 'Destroy', cell, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Gerente</th>
+        <th>Diretoria</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @cells.each do |cell| %>
+        <tr>
+          <td><%= cell.name %></td>
+          <td><%= cell.manager %></td>
+          <td><%= cell.directorship.name %></td>
+          <td><%= link_to image_tag("show.svg"), cell, class: "cell-icon" %></td>
+          <td><%= link_to image_tag("edit.svg"), edit_cell_path(cell), class: "cell-icon" %></td>
+          <td><%= link_to image_tag("destroy.svg"), cell, method: :delete, data: { confirm: 'Deseja realmente excluir?' }, class: "cell-icon" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Cell', new_cell_path %>
+  <br>
+  <div class="actions text-right">
+    <%= link_to 'Nova Célula', new_cell_path, class: 'btn btn-primary btn-new-dir' %>
+  <div>
+</div>
+

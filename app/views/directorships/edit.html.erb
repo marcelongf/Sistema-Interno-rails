@@ -1,7 +1,13 @@
-<h1>Editing Directorship</h1>
+<div class="container container-img-footprint">
+    <div class="row">
+        <%= link_to image_tag("back.svg"), directorships_path %>
+        <%= link_to image_tag("show.svg", class:"img-show"), @directorship, class:"text-right" %>
+    </div>
+    <h1 class="h1-edit-directorships">Editar diretoria</h1>
 
-<%= render 'form', directorship: @directorship, directors: @directors %>
+    <%= render 'form', directorship: @directorship, directors: @directors %>
 
-<%= link_to 'Show', @directorship %> |
-<%= link_to 'Back', directorships_path %>
+</div>
+
+
 

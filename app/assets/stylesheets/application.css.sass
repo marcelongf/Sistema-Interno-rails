@@ -70,178 +70,91 @@ body, html
 
 
 .container 
-    .div-form
-        display: none//grid
-        position: fixed
-        z-index: 1000
-        background-color: black
-        height: 250px
-        width: 400px
-        text-align: center
-        input
-            margin-bottom: 20px
-            width: 300px
-            height: 30px
-        a
-            text-align: right
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets"
+@import "bootstrap"
 
 
-.container-fluid .row .col-md-4 
-    margin: 0 auto
-    padding-right: 0px
-    padding-left: 0px
 
-.container-fluid .row .col-md-4 .card .card-body ul li 
-    list-style-type: none
-    text-align: center
-    a 
-        color: $blue-2
-    a:hover
-        background-color: $white-2
-        text-decoration: none
-        color: $blue-3
+$blue-1: #599bca
+$blue-2: #8080ff
+$blue-3: #4d4dff
+$blue-4: #b1d2e6
+$blue-5: #3A599F
+$blue-6: #4E99CE
+$white-1: #fefefe
+$white-2: #f3ebee
+$gray-1: #e4e4e4
+$black-1: #171E22
 
-.container-fluid .row .col-md-4 .card .card-body ul
-    padding-left: 0px
+    
+body, html 
+    background-color: $white-2
 
-.container-fluid .row .col-md-8
-    padding-left: 0px
+@font-face 
+    font-family: 'Ikaros'
+    src: font-url('Ikaros-Regular.otf')
 
-.container-fluid .row .col-md-8 .card 
-    padding-top: 65px
-    padding-bottom: 65px
-    text-align: justify
-
-.container .row .col-sm-4 .card .card-body 
-    background-color: $blue-4
-
-.container-fluid .row .col-md-8 .card .card-body ul li 
-    list-style-type: none
-    p
-        font-size: 18px
-        padding-bottom: 10px
-.projects 
-    font-size: 36px
-    font-family: Ikaros
-    position: relative
-    z-index: 2
-    padding-bottom: 30px
-
-.projects::after 
-    content: ""
-    width: 240px
-    height: 18px
-    background-color: $blue-6
-    position: absolute
-    display: block
-    top: 13px
-    z-index: -1
-
-.container
-    .row
-        .col-sm-4
-            .card
-                padding-bottom: 20px
-                .card-body
-                    padding: 20px
-                    .card-title
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-                        font-size: 18px
-                    .cart-text
-                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-                        font-size: 14px
-                    .btn
-                        text-align: center
-                        font-size: 14px
-                        width: 70px
-                        padding: 0px
-
-
-.container .btn 
-    width: 130px
-    font-family: Ikaros
-    font-size: 36px
+.navbar 
     background-color: $blue-1
-    padding-top: 0px
-    padding-bottom: 0px
-    border: 0px
     border-radius: 0px
-    margin-bottom: 20px
-
-.container .btn:hover 
-    background-color: $blue-5
 
 
-.historic
-    font-size: 36px
-    font-family: Ikaros
-    position: relative
-    z-index: 2
-    padding-bottom: 30px
+.navbar-header 
+    .navbar-brand 
+        padding: 0px
+        width: 90px
+        height: 40px
+        margin: 8px 0px 8px 15px
+    .navbar-brand:hover
+        background-color: $blue-1
 
-.historic::after 
-    content: ""
-    width: 130px
-    height: 18px
-    background-color: $blue-6
-    position: absolute
-    display: block
-    top: 13px
-    z-index: -1
+.navbar-nav
+    .nav-item-profile
+        a
+            padding-top: 10px
+            padding-bottom: 10px
+        .dropdown
+            .dropdown-toggle
+                background-color: $blue-1
+                img
+                    margin: 12px
+                    width: 30px
+                    background-color: $blue-1
+            .dropdown-menu
+                width: 50px
+                background-color: $blue-1
+                .dropdown-item
+                    padding-left: 20px
+                .dropdown-item:hover
+                    text-decoration: none
+                    padding: 0px 0px 0px 20px
+    li
+        a
+            font-family: 'Ikaros'
+            font-size: 18px
+            color: $white-1
 
-h3
-    font-family: Ikaros
-    position: relative
-    z-index: 2
+    li
+        a:hover
+            background-color: $blue-1
+            color: $gray-1
 
-.container
-    .row
-        h3
-            padding-left: 5px
-        .col-sm-4
-            .card
-                .card-body
-                    .card-title
-                        text-align: center
-                        
-
-footer
-    padding-bottom: 0px
-    background-color: $black-1
-    .containeir
-        .row
-            margin-left: 15px
-            width: 90%
-            .col-sm-4
-                padding-right: 0px
-                padding-top: 20px
-                #img-logo
-                    margin: 0 auto
-                    width: 240px
-            .col-sm-8
-                padding-top: 50px
-                ul
-                    li
-                        font-family: Ikaros
-                        font-size: 18px
-                        color: $white-2
-                        display: inline-block
-                        text-decoration: none
-                        text-align: center
-                        padding: 20px
-                        a
-                            background-color: $black-1
-                            color: $white-1
-                            text-decoration: none
-                        a:hover
-                            color: $white-2
-        .footer-copyright
-            p
-                padding: 20px 0px 20px 0px
-                margin: 0px
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-                font-size: 14px
-                color: $white-2
 .go-top 
     position: fixed
     bottom: 2em
@@ -252,7 +165,23 @@ footer
     display: none
     img 
         width: 30px
-        opacity: 0.5
-
+        opacity: 0.4
+    .img-responsive
+        padding-top: 0px
 .go-top:hover 
-    background-color: rgba(0, 0, 0, 0.6)
+    background-color: $blue-5
+    opacity: 0.4
+    img:hover
+        background-color: $blue-5
+        opacity: 0.4
+
+
+//------------------------diretorships------------------------//
+
+.container 
+    .btn-new-dir
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+        font-size: 14px
+        width: 140px
+        padding-top: 15px
+        padding-bottom: 15px

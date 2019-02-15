@@ -1,6 +1,9 @@
-<h1>Editing Cell</h1>
+<div class="container container-img-footprint">
+    <div class="row">
+        <%= link_to image_tag('back.svg'), cells_path %>
+        <%= link_to image_tag('show.svg', class:"img-show"), @cell, class:"text-right" %>
+    </div>
+    <h1>Editar célula</h1>
 
-<%= render 'form', cell: @cell, managers: @managers, dirs: @directorships %>
-
-<%= link_to 'Show', @cell %> |
-<%= link_to 'Back', cells_path %>
+    <%= render 'form', cell: @cell, managers: @managers, dirs: @directorships %>
+</di

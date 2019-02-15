@@ -1,6 +1,9 @@
-<h1>New Directorship</h1>
+<div class="container container-img-footprint">
+    <%= link_to image_tag("back.svg"), directorships_path %>
+    <h1 class="h1-new-directorships">Nova diretoria</h1>
 
-<%= render 'form', directorship: @directorship, directors: @directors %>
+    <%= render 'form', directorship: @directorship, directors: @directors %>
 
-<%= link_to 'Back', directorships_path %>
+<div>
+
 

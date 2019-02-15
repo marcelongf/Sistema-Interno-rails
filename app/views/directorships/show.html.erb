@@ -1,35 +1,49 @@
-<p>
-  <strong>Name:</strong>
-  <%= @directorship.name %>
-</p>
+<div class="container container-img-footprint">
+  <div class="row">
+    <%= link_to image_tag('back.svg'), directorships_path, class: "icon-show" %>
+    <%= link_to image_tag('edit.svg'), edit_directorship_path(@directorship), class: "icon-show img-edit" %>
+  </div>
+  <div class="text-center">
+    <%= image_tag ("wolf-suit.png"), class:"img-wolf-suit" %>
+    <h1>Diretoria</h1>
+  </div>
+  <p>
+    <strong class="show-name">Nome:</strong>
+    <%= @directorship.name %>
+  </p>
 
-<p>
-  <strong>Director:</strong>
-  <%= User.find(@directorship.director).name %>
-</p>
+  <p>
+    <strong class="show-director">Diretor:</strong>
+    <%= User.find(@directorship.director).name %>
+  </p>
 
-<% @directorship.directorship_goals.each do |goal| %>
-  <%= goal.title %> |
-  <%= goal.status %> |
-  <%= goal.description %> |
-  <%= link_to 'Pagina da meta', show_directorshipgoal_path(:id => goal.id) %>
-  <table>
-    <thead>
-      <th>Tarefa:</th>
-      <th>Status:</th>
-      <th>Designada a:</th>
-    </thead>
-    <% goal.directorship_tasks.each do |task| %>
-      <tr>
-        <td><%= task.description %></td>
-        <td><%= task.status %></td>
-        <td><%= task.user.name %></td>
-      </tr>
-    <%end%>
-  <table>
-<%end%>
+  <% @directorship.directorship_goals.each do |goal| %>
+    <%= goal.title %> |
+    <%= goal.status %> |
+    <%= goal.description %> |
+    <%= link_to 'Pagina da meta', show_directorshipgoal_path(:id => goal.id) %>
+    <table>
+      <thead>
+        <th>Tarefa:</th>
+        <th>Status:</th>
+        <th>Designada a:</th>
+      </thead>
+      <% goal.directorship_tasks.each do |task| %>
+        <tr>
+          <td><%= task.description %></td>
+          <td><%= task.status %></td>
+          <td><%= task.user.name %></td>
+        </tr>
+      <%end%>
+    <table>
+  <%end%>
 
-<%= link_to  "Criar nova Meta", directorshipgoal_path(:id => @directorship.id) %>
 
-<%= link_to 'Edit', edit_directorship_path(@directorship) %> |
-<%= link_to 'Back', directorships_path %>
+    
+  
+  <div class="actions text-center">
+    <%= link_to  "Criar nova meta", directorshipgoal_path(:id => @directorship.id), class: "btn btn-primary btn-new-dir" %>
+  </div>
+  
+</div>
+
