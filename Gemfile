@@ -13,6 +13,8 @@ gem 'cancancan'
 
 gem 'haml', '~> 5.0', '>= 5.0.4'
 
+gem 'faker'
+
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
