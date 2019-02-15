@@ -1,5 +1,7 @@
-<h1>New Project</h1>
-
-<%= render 'form', project: @project, pmos: @pmos %>
-
-<%= link_to 'Back', projects_path %>
+<div class="container">
+  <h1 class="new-project">Novo Projeto</h1>
+  <div class="form-group">
+    <%= render 'form', project: @project, pmos: @pmos %>
+  </div>
+  <%= link_to "Voltar", projects_path %>
+</div>
