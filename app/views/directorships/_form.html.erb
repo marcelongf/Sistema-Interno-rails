@@ -10,19 +10,19 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :Nome %>
+      <%= form.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="field">
+      <%= form.label :Diretor %>
+      <%= form.select :director, directors %>
+    </div>
 
-  <div class="field">
-    <%= form.label :director %>
-    <%= form.select :director, directors %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions text-right">
+      <%= form.submit "Criar diretoria", class:"btn btn-primary btn-new-dir"%>
+    </div>
   </div>
 <% end %>
-

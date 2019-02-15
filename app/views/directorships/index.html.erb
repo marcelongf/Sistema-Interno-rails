@@ -1,33 +1,35 @@
 <p id="notice"><%= notice %></p>
+<div class="container container-img-footprint">
+  <h1 class="h1-directorships">Diretorias</h1>
 
-<h1>Directorships</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Director</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @directorships.each do |directorship| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= directorship.name %></td>
-        <% unless directorship.director.nil? %>
-          <td><%= User.find(directorship.director).name %></td>
-        <%else%>
-          <td></td>
-        <%end%>
-        <td><%= link_to 'Show', directorship %></td>
-        <td><%= link_to 'Edit', edit_directorship_path(directorship) %></td>
-        <td><%= link_to 'Destroy', directorship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Diretor</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @directorships.each do |directorship| %>
+        <tr>
+          <td><%= directorship.name %></td>
+          <% unless directorship.director.nil? %>
+            <td><%= User.find(directorship.director).name %></td>
+          <%else%>
+            <td></td>
+          <%end%>
+          <td><%= link_to image_tag("show.svg"), directorship, class: "dir-icon" %></td>
+          <td><%= link_to image_tag("edit.svg"), edit_directorship_path(directorship), class: "dir-icon" %></td>
+          <td><%= link_to image_tag("destroy.svg"), directorship, method: :delete, data: { confirm: 'Deseja realmente excluir?' }, class: "dir-icon" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
 
-<%= link_to 'New Directorship', new_directorship_path %>
+  <div class="actions text-right">
+    <%= link_to 'Nova Diretoria', new_directorship_path, class:"btn btn-primary btn-new-dir" %>
+  </div>
+</div>

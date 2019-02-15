@@ -1,63 +1,83 @@
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="container container-user container-bottom">
 
-<p>
-  <strong>Tipo:</strong>
-  <%= @user.kind %>
-</p>
+  <div class="row">
+      <%= link_to image_tag('back.svg'), users_path %>
+      <%= link_to image_tag('edit.svg'), edit_user_path(@user), class: "img-edit" %>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-center image-profile">
+      <%= image_tag('image-profile') %>
+    </div>
+    <div class="col-sm-6 text-center">
+      <p class="description-user">
+        <strong>Nome:</strong>
+        <%= @user.name %>
+      </p>
 
-<p>
-  <strong>Célula atual:</strong>
-  <%= @user.cell.name %>
-</p>
+      <p class="description-user">
+        <strong>Tipo:</strong>
+        <%= @user.kind %>
+      </p>
 
-<p>
-  <strong>Directoria atual:</strong>
-  <%= @user.directorship.name %>
-</p>
-
-<h4>Projetos em Andamento:</h4>
-<table>
-  <thead>
-    <th>Projeto</th>
-    <th>Descrição</th>
-    <th>Criado em</th>
-  <thead>
-  <tbody>
-    <% @user_projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= project.created_at %></td>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
-
-<h4>Projetos já Acabados:</h4>
-<table>
-  <thead>
-    <th>Projeto</th>
-    <th>Descrição</th>
-    <th>Criado em</th>
-  <thead>
-  <tbody>
-    <% @user_ex_projects.each do |project| %>
-      <tr>
-        <td><%= project.title %></td>
-        <td><%= project.description %></td>
-        <td><%= project.created_at %></td>
-      </tr>
-    <%end%>
-  </tbody>
-</table>
+      <p class="description-user description-user-bottom">
+        <strong>E-mail:</strong>
+        <%= @user.email %>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container container-user container-bottom">
+  <p class="title-show">
+    <strong>Célula atual:</strong>
+    <%= @user.cell.name %>
+  </p>
+</div>
+<div class="container container-user container-bottom">
+  <p class="title-show">
+    <strong>Diretoria atual:</strong>
+    <%= @user.directorship.name %>
+  </p>
+</div>
+<div class="container container-user container-bottom">
+  <h4 class="title-show title-show-bold">Projetos em Andamento:</h4>
+  <table class="table">
+    <thead>
+      <th>Projeto</th>
+      <th>Descrição</th>
+      <th>Criado em</th>
+    <thead>
+    <tbody>
+      <% @user_projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.description %></td>
+          <td><%= project.created_at %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+<div class="container container-user container-bottom">
+  <h4 class="title-show title-show-bold">Projetos já Acabados:</h4>
+  <table class="table">
+    <thead>
+      <th>Projeto</th>
+      <th>Descrição</th>
+      <th>Criado em</th>
+    <thead>
+    <tbody>
+      <% @user_ex_projects.each do |project| %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><%= project.description %></td>
+          <td><%= project.created_at %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  <br/>
+</div>
+<div class="container container-user container-bottom">
+       <%= link_to  "Arvore de habilidade", skilltree_path(:id => @user.id) %>
+</div>
 <br/>
-
-<%= link_to  "Arvore de habilidade", skilltree_path(:id => @user.id) %>
-
-<br/>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
