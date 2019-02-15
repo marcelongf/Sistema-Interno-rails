@@ -1,16 +1,39 @@
-<h2>Forgot your password?</h2>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Projeto final</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <body>
+    <div class="home">
+      <div class="logo-image">
+          <%= image_tag("logo-azul.png", size: "219x142", :alt => "Logo")%>
+      </div>
+      <h2 class="text-forgot-password">Esqueceu sua senha?</h2>
+      <div class="form">
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
+          <div class="email">
+            <div class="text-input">
+              <%= f.label :email, "Email"%><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+          </div>
 
-<%= render "devise/shared/links" %>
+          <div class="button">
+            <%= f.submit "Enviar e-mail" %>
+          </div>
+        <% end %>
+        <div class="login text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
