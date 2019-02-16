@@ -183,7 +183,19 @@ $black-2: #000000;
         top: 28px;
         z-index: -1;
     }
-
+    .h1-my-tasks::after {
+        content: "";
+        width: 400px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+   
+    /* Solução do momento para trabalhar com pseudo elemento, reconheço a invialibilidade do método utilizando, e reconheço que existe um método mais eficaz (calc()), porém tive dificuldades em compreende-lo no momento, e por questão agilidade optei por esse jeito" */
+   
     .table {
         tr {
             th {
