@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :Nome %><br>
     <%= form.text_field :name %>
   </div>
 
   <%= form.hidden_field :user_id, :value => @user.id %>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :Descrição %><br>
     <%= form.text_area :description %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= form.submit "Salvar", class:"btn btn-primary btn-new-dir"%>
   </div>
 <% end %>
