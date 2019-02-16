@@ -39,6 +39,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+
+  def myTasks
+    cell_tasks = CellTask.where(user_id: current_user.id)
+    @undone_cell_tasks = cell_tasks.where(status: false)
+    @done_cell_tasks = cell_tasks.where(status: true)
+    dir_tasks = DirectorshipTask.where(user_id: current_user.id)
+    @undone_dir_tasks = dir_tasks.where(status: false)
+    @done_dir_tasks = dir_tasks.where(status: false)
+  end
+
   # POST /users
   # POST /users.json
   def create

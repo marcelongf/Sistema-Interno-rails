@@ -15,6 +15,10 @@ class CellGoalController < ApplicationController
         task.save!
     end
 
+    def updateTask
+        CellTask.find(params[:id]).update(:status => true)
+    end
+
     def show
         @cellTask = CellTask.new
         @cellGoal = CellGoal.find(params[:id])

@@ -29,6 +29,9 @@
               <li>
                 <%= link_to  "Fórum", posts_path %>
               </li>
+              <li>
+                <%=  link_to "Minhas Tarefas", mytasks_path%>
+              </li>
               <% if current_user.kind == 'pmo_manager' || 'project_director' %>
                 <li>
                   <%= link_to  "Projetos", projects_path %>
