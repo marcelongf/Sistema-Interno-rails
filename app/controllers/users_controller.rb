@@ -16,14 +16,14 @@ class UsersController < ApplicationController
     ongoing_projects = Project.where(status: false)
     @user_projects = []
     ongoing_projects.each do |proj|
-      if proj.users_id.include?(current_user.id)
+      if proj.users_id.include?(@user.id)
         @user_projects.push(proj)
       end
     end
     @user_ex_projects = []
     finished_prjects = Project.where(status: true)
     finished_prjects.each do |proj|
-      if proj.users_id.include?(current_user.id)
+      if proj.users.include?(@user)
         @user_ex_projects.push(proj)
       end
     end

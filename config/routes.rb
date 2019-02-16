@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   post '/createarticlecomment', to: 'articles#createComment', as: 'create_article_comment'
 
+  post '/addnewmembertoproject', to: 'projects#addNewMember', as: 'new_member'
+
   get '/skilltree', to: 'users#skilltree', as: 'skilltree'
 
   resources :users

@@ -17,8 +17,10 @@
 
 <% if current_user.kind == 'pmo_manager' || 'project_director' || 'cell_manager' %>
   <h3> Adicionar novo membro </h3>
-  <%= form_with new_member_path do |form| %>
-    <%= form.select :user, @select_users %>
+  <%= form_with(url: new_member_path) do |form| %>
+    <%= form.hidden_field :project_id, :value => @project.id %>
+    <%= form.select :user_id, @select_users %>
+    <%= form.submit %>
   <%end%>
 <%end%>
 
