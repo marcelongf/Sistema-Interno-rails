@@ -8,13 +8,15 @@ $blue-1: #599bca;
 $blue-2: #8080ff;
 $blue-3: #4d4dff;
 $blue-4: #b1d2e6;
-$blue-5: #3A599F;
-$blue-6: #4E99CE;
+$blue-5: #3a599f;
+$blue-6: #4e99ce;
+$blue-7: #3b2063;
 $white-1: #fefefe;
 $white-2: #f3ebee;
 $gray-1: #e4e4e4;
 $gray-2: #d8d8d8;
 $black-1: #171E22;
+$black-2: #000000;
 
 
 .container {
@@ -56,4 +58,62 @@ $black-1: #171E22;
         }
     }
 
+    .text-center {
+        .img-group-wolf-suit {
+            width: 200px;
+        }
+    }
+
+    p {
+        .show-title {
+            font-weight: normal;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 24px;
+            color: $black-2;
+        }
+
+    }
+
+    .table {
+        .tr {
+            h2 {
+                color: $black-2;
+            }
+        }
+    }
+
+    .card-group {
+        .card {
+            .card-body {
+                background-color: $blue-7;
+                background-image: url('logo-transparent.png');
+                background-repeat: no-repeat;
+                background-position: right bottom;
+                width: 100%;
+                padding: 20px;
+                margin: 20px 0px 10px 0px;
+                strong {
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-size: 18px;
+                    color: $white-2;
+                }
+                .text-goal {
+                    color: $white-2;
+                }
+                .btn-goal {
+                    margin-top: 20px;
+                    width: 100px;
+                    font-size: 14px;
+                    color: $white-1;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                .btn-goal:hover {
+                    background-color: $blue-5;
+                }
+            }
+        }
+    }
+    .btn-new-goal {
+        margin-top: 15px;
+    }
 }

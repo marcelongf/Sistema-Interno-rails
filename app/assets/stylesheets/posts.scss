@@ -1,3 +1,46 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@font-face {
+    font-family: 'Ikaros';
+    src: font-url('Ikaros-Regular.otf');
+}
+
+.container {
+    .posts {
+    font-size: 4em;
+    font-family: 'Ikaros';
+    text-transform: lowercase;
+    position: relative;
+    z-index: 3;
+    }
+
+    .posts::after {
+    content: "";
+    height: 25px;
+    width: 155px;
+    position: absolute;
+    background: #4E99CE;
+    z-index: -1;
+    top: 25px;
+    display: block;
+    }
+
+    a {
+        font-size: 2em;
+    }
+
+    a:hover {
+        background-color: rgba(0, 0, 0, 0);
+        text-decoration: none;
+    }
+}
+
+th {
+    font-family: Ikaros;
+    font-size: 1.25em;
+}

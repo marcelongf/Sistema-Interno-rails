@@ -12,6 +12,7 @@
 
 .container {
     .projects {
+    font-size: 4em;
     font-family: 'Ikaros';
     text-transform: lowercase;
     position: relative;
@@ -20,12 +21,12 @@
 
     .projects::after {
     content: "";
-    height: 18px;
-    width: 135px;
+    height: 25px;
+    width: 205px;
     position: absolute;
     background: #4E99CE;
     z-index: -1;
-    top: 13px;
+    top: 25px;
     display: block;
     }
 
