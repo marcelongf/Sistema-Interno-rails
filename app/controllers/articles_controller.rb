@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :like]
 
   # GET /articles
   # GET /articles.json
@@ -64,6 +64,15 @@ class ArticlesController < ApplicationController
   def createComment
     @comment = ArticleComment.new(article_comment_params)
     @comment.save
+  end
+
+  #metodos do sistema de likes
+  def like
+    if !current_user.liked? @article 
+      @article.liked_by current_user 
+    elsif current_user.liked? @article
+      @article.unliked_by current_user
+    end
   end
 
   private

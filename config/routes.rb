@@ -37,11 +37,13 @@ Rails.application.routes.draw do
       put 'like' => 'posts#like'
     end
   end
-  resources :articles do
+  resources :articles do 
     member do 
-      put 'like' => 'articles#like'
+      put 'like'=> 'articles#like'
     end
   end
+  #put 'likearticle', to: 'articles#like', as: 'like_article'
+
   resources :skills
 
   resources :projects

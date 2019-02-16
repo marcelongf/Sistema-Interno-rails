@@ -12,7 +12,10 @@
   <strong>Pertence a:</strong>
   <%= link_to @article.user.name, @article.user %>
 </p>
-
+<br>
+<%= link_to "Like", like_article_path(@article), method: :put, remote: :true %>
+<span class="likes-count"><%= @article.get_upvotes.size %></span>
+<br>
 <% @article.article_comments.each do |comment| %>
   <%= comment.user.name %> comentou: <%= comment.content %>
   <br/>
