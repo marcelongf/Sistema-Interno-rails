@@ -12,26 +12,35 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <div class="form-group">
+      <label for="inputsm"><%= form.label :title, "Título" %></br>
+        <%= form.text_field :title, class: "form-control" %>
+      </label>  
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <div class="form-group">
+      <label for="comment"><%= form.label :description, "Descrição" %>
+       <%= form.text_area :description, class: "form-control" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :tag %>
-    <%= form.text_field :tag %>
+    <div class="form-group">
+      <label for="inputsm"><%= form.label :tag, "Tag" %></br>
+        <%= form.text_field :tag, class: "form-control" %>
+      </label>
+    </div>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <div class="form-group">
+      <label for="inputsm"><%= form.label :user_id, "Usuário" %></br>   
+        <%= form.text_field :user_id, class: "form-control" %>
+      </label>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= form.submit value: "Criar", class: "btn btn-primary" %>
   </div>
 <% end %>
