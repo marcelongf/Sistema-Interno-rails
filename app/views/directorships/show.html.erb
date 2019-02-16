@@ -19,7 +19,11 @@
 
   <% @directorship.directorship_goals.each do |goal| %>
     <%= goal.title %> |
-    <%= goal.status %> |
+    <% if goal.status %>
+      FINALIZADA(PREENCHER)
+    <%else%>
+      EM ANDAMENTO(PREENCHER)
+    <%end%>
     <%= goal.description %> |
     <%= link_to 'Pagina da meta', show_directorshipgoal_path(:id => goal.id) %>
     <table class="table">
@@ -31,7 +35,13 @@
       <% goal.directorship_tasks.each do |task| %>
         <tr>
           <td><%= task.description %></td>
-          <td><%= task.status %></td>
+          <td>
+          <% if task.status %>
+            FINALIZADA(PREENCHER)
+          <%else%>
+            EM ANDAMENTO(PREENCHER)
+          <%end%>             
+          </td>
           <td><%= task.user.name %></td>
         </tr>
       <%end%>

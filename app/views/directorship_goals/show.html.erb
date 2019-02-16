@@ -23,7 +23,12 @@
           <% @directorshipGoal.directorship_tasks.each do |task| %>
               <tr>
                   <td><%= task.description %></td>
-                  <td><%= task.status %></td>
+                  <td><% if task.status %>
+                    FINALIZADA(PREENCHER)
+                  <%else%>
+                    EM ANDAMENTO(PREENCHER)
+                  <%end%>
+                  </td>
                   <td><%= task.user.name %></td>
               </tr>
           <%end%>
