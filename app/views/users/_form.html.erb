@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :Nome %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
+    <%= form.label :Email %>
     <%= form.text_field :email %>
   </div>
 
@@ -33,14 +33,14 @@
   <br/>
 
 
-  Célula:
+  <strong>Célula:</strong>
   <%= select(:user, :cell_id, cells) %>
 
   <br/>
-  Diretoria:
+  <strong>Diretoria:</strong>
   <%= select(:user, :directorship_id, dirs) %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= form.submit "Editar usuário", class:"btn btn-primary btn-new-dir" %>
   </div>
 <% end %>

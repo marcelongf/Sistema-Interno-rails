@@ -1,6 +1,10 @@
-<h1>Editing User</h1>
+<div class="container container-img-footprint">
+    <div class="row">
+        <%= link_to image_tag('back.svg'), users_path %>
+        <%= link_to image_tag('show.svg', class:"img-show"), @user, class:"text-rigth" %>
+    </div>
+    <h1 class="h1-edit-user">Editar usuário</h1>
 
-<%= render 'form', user: @user, cells: @cells, dirs: @directorships %>
+    <%= render 'form', user: @user, cells: @cells, dirs: @directorships %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+</div>
