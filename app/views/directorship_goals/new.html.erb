@@ -1,23 +1,20 @@
-<div class="container">
+<div class="container container-img-footprint">
     <%= link_to image_tag("back.svg"), directorship_path(:id => params[:id]) %>
-    <div class="text-center">
-        <%= image_tag ("goals.svg"), class:"img-goals" %>
-        <h1>Criar metas</h1>
-    </div>
+        <h1 class="h1-new-goal">Criar metas</h1>
     <%= form_tag create_directorshipgoal_path do %>
         <div class='field'>
-            Titulo:<%= text_field_tag :title %>
+            Titulo:<br><%= text_field_tag :title %>
         </div>
         <div class='field'>
-            Descrição:<%= text_area_tag :description %>
+            Descrição:<br><%= text_area_tag :description %>
         </div>
 
         <%= hidden_field_tag :status, false %>
 
         <%= hidden_field_tag :directorship_id, @directorship.id %>
 
-        <div class='action'>
-            <%= submit_tag "Criar meta" %>
+        <div class='action text-right'>
+            <%= submit_tag "Salvar", class:"btn btn-primary btn-new-dir"%>
         </div>
     <% end %>    
 </div>
