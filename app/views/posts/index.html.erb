@@ -1,29 +1,31 @@
-<%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<h1>Fórum</h1>
+<div class="container">
+  <h1 class="posts">Fórum</h1>
+  <table class="table">
+    <% @posts.each do |post| %>
+        <h2><%= link_to post.title, post %></h2>
+        <p><%= post.description %></p>
+        <p> Postado por: <%= link_to post.user.name, post.user %></p>
+        <%= form_with(url: create_post_comment_path) do |form| %>
+          <%= form.hidden_field :post_id, :value => post.id %>
+          <%= form.hidden_field :user_id, :value => current_user.id %>
+          <%= form.text_field :content %>
+          <%= form.submit %>
+        <%end%>
+        <% if current_user == post.user %>
+          <%= link_to 'Edit', edit_post_path(post) %>
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%end%>
+        <% post.post_comments.each do |comment| %>
+          <%= comment.user.name %> comentou: <%= comment.content %>
+          <br/>
+        <%end%>
+    <% end %>
+  </table>
+  
+  <br>
+  
+  <%= link_to 'Criar Nova Postagem', new_post_path %>
 
-
-<% @posts.each do |post| %>
-    <h2><%= link_to post.title, post %></h2>
-    <p><%= post.description %></p>
-    <p> Postado por: <%= link_to post.user.name, post.user %></p>
-    <%= form_with(url: create_post_comment_path) do |form| %>
-      <%= form.hidden_field :post_id, :value => post.id %>
-      <%= form.hidden_field :user_id, :value => current_user.id %>
-      <%= form.text_field :content %>
-      <%= form.submit %>
-    <%end%>
-    <% if current_user == post.user %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%end%>
-    <% post.post_comments.each do |comment| %>
-      <%= comment.user.name %> comentou: <%= comment.content %>
-      <br/>
-    <%end%>
-<% end %>
-
-
-<br>
-
-<%= link_to 'Criar novo Post', new_post_path %>
+</div>

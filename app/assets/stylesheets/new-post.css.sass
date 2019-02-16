@@ -1,0 +1,52 @@
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+@font-face 
+    font-family: 'Ikaros'
+    src: font-url('Ikaros-Regular.otf')
+
+.new-post
+    font-size: 4em
+    font-family: 'Ikaros'
+    text-transform: lowercase
+    position: relative
+    z-index: 3
+    padding: 20px 0px
+
+.new-post::after
+    content: ""
+    height: 25px
+    width: 390px
+    position: absolute
+    background: #4E99CE
+    z-index: -1
+    top: 45px
+    display: block
+
+label
+    font-family: Ikaros
+    font-size: 1.5em
+
+.container
+    .btn
+        text-align: center
+        width: 219px
+        padding-top: 10px
+        padding-bottom: 10px
+
+
+a
+    font-family: Ikaros
+    font-size: 1.25em
+    color: #333
+    text-decoration: none
+
+
+.container
+    table
+        tbody
+            tr
+                td
+                    a:hover
+                        background-color: rgba(0, 0, 0, 0)
+                        text-decoration: none
