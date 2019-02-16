@@ -80,4 +80,15 @@ $black-2: #000000;
             }
         }
     }
+
+    .card-group {
+        .card {
+            .card-body {
+                .btn-goal {
+                    width: 100px;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
 }
