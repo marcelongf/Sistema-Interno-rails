@@ -13,13 +13,16 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    ongoing_projects = Project.where(status: false)
-    @user_projects = []
-    ongoing_projects.each do |proj|
-      if proj.users_id.include?(@user.id)
-        @user_projects.push(proj)
-      end
+    proj_users = ProjectUser.where(user_id: current_user.id)
+    @ongoing_projects = []
+    proj_users.each do |p_u|
+      @ongoing_projects.push(Project.find(p_u.project_id))
     end
+
+    #if proj.users_id.include?(@user.id)
+    #   @user_projects.push(proj)
+    #  end
+    #end
     @user_ex_projects = []
     finished_prjects = Project.where(status: true)
     finished_prjects.each do |proj|

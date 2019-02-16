@@ -3,8 +3,10 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   # GET /articles.json
-  def index
-    @articles = Article.all
+  def index 
+    @q = Article.ransack(params[:q])
+    @articles = @q.result
+    #@articles = Article.all
   end
 
   # GET /articles/1
