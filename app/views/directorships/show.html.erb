@@ -17,21 +17,23 @@
     <%= User.find(@directorship.director).name %>
   </p>
 
-  <% @directorship.directorship_goals.each do |goal| %>
-    <%= goal.title %> |
-    <% if goal.status %>
-      FINALIZADA(PREENCHER)
-    <%else%>
-      EM ANDAMENTO(PREENCHER)
-    <%end%>
-    <%= goal.description %> |
-    <%= link_to 'Pagina da meta', show_directorshipgoal_path(:id => goal.id) %>
-    <table class="table">
-      <thead>
-        <th>Tarefa:</th>
-        <th>Status:</th>
-        <th>Designada a:</th>
-      </thead>
+
+  <div class="card-group">
+    <h2>Metas</h2>
+    <% @directorship.directorship_goals.each do |goal| %>
+    <div class="card">
+      <div class="card-body col-md-12 text-center">
+        <strong>Nome da meta</strong> <br> <p class="text-goal"> <%= goal.title %> </p> <br>
+        <strong>Atingida</strong> <br> <p class="text-goal"> <% if goal.status %> </p> <br>
+          FINALIZADA(PREENCHER)<br>
+        <%else%>
+          EM ANDAMENTO(PREENCHER)<br>
+        <%end%>
+        <strong>Descrição</strong> <br> <p class="text-goal"> <%= goal.description %> </p> <br>
+        <%= link_to 'Exibir meta', show_directorshipgoal_path(:id => goal.id), class:"btn btn-primary btn-goal" %>
+
+
+
       <% goal.directorship_tasks.each do |task| %>
         <tr>
           <td><%= task.description %></td>
