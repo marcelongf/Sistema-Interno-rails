@@ -1,50 +1,68 @@
-<p id="notice"><%= notice %></p>
+<div class="container container-img-footprint">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <%= link_to image_tag('back.svg'), cells_path, class: "icon-show" %>
+    <%= link_to image_tag('edit.svg'), edit_cell_path(@cell), class: "icon-show img-edit" %>
+  </div>
+  <div class="text-center">
+    <%= image_tag ("group-wolf-suit.png"), class:"img-group-wolf-suit" %>
+    <h1>Célula</h1>
+  </div>
+  
 
-<p>
-  <strong>Name:</strong>
-  <%= @cell.name %>
-</p>
+  <p>
+    <strong class="show-title">Nome:</strong>
+    <%= @cell.name %>
+  </p>
 
-<p>
-  <strong>Manager:</strong>
-  <%= User.find(@cell.manager).name %>
-</p>
+  <p>
+    <strong class="show-title">Gerente:</strong>
+    <%= User.find(@cell.manager).name %>
+  </p>
 
-<p>
-  <strong>Directorship:</strong>
-  <%= @cell.directorship.name %>
-</p>
+  <p>
+    <strong class="show-title">Diretoria:</strong>
+    <%= @cell.directorship.name %>
+  </p>
 
-<table>
-  <th>Integrantes</th>
-  <% @cell.users.each do |user| %>
-    <tr><%= link_to user.name, user %></tr>
-  <%end%>
-</table>
-
-
-<% @cell.cell_goals.each do |goal| %>
-  <%= goal.title %> |
-  <%= goal.status %> |
-  <%= goal.description %> |
-  <%= link_to 'Pagina da meta', show_cellgoal_path(:id => goal.id) %>
-  <table>
-    <thead>
-      <th>Tarefa:</th>
-      <th>Status:</th>
-      <th>Designada a:</th>
-    </thead>
-    <% goal.cell_tasks.each do |task| %>
-      <tr>
-        <td><%= task.description %></td>
-        <td><%= task.status %></td>
-        <td><%= task.user.name %></td>
-      </tr>
+  <table class="table">
+    <tr>
+      <h2>Integrantes</h2>
+    </tr>
+    <% @cell.users.each do |user| %>
+      <td><%= link_to user.name, user,  class:"h3" %></td>
     <%end%>
-  <table>
-<%end%>
+  </table>
 
-<%= link_to  "Criar nova Meta", cellgoal_path(:id => @cell.id) %>
 
-<%= link_to 'Edit', edit_cell_path(@cell) %> |
-<%= link_to 'Back', cells_path %>
+  <% @cell.cell_goals.each do |goal| %>
+  <div class="card">
+    Nome: <%= goal.title %><br>
+    Atingida: <%= goal.status %><br>
+    Descrição: <%= goal.description %><br>
+    <%= link_to 'Pagina da meta', show_cellgoal_path(:id => goal.id) %>
+  </div>
+    <table class="table">
+      <thead>
+        <th>Tarefa:</th>
+        <th>Status:</th>
+        <th>Designada a:</th>
+      </thead>
+      <% goal.cell_tasks.each do |task| %>
+        <tr>
+          <td><%= task.description %></td>
+          <td><%= task.status %></td>
+          <td><%= task.user.name %></td>
+        </tr>
+      <%end%>
+    <table>
+  <%end%>
+
+  
+
+  <div class="actions text-center">
+    <%= link_to  "Criar nova meta", cellgoal_path(:id => @cell.id), class: "btn btn-primary btn-new-dir" %>
+  </div>
+
+
+</div>
