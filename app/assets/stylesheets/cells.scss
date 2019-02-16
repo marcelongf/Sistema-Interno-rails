@@ -132,8 +132,9 @@ $black-2: #000000;
         .field {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             font-size: 18px;
-            text-area {
+            .text-area {
                 resize: none;
+                width: 500px;
             }
         }
     }
