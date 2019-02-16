@@ -37,7 +37,11 @@
     <% goal.cell_tasks.each do |task| %>
       <tr>
         <td><%= task.description %></td>
-        <td><%= task.status %></td>
+        <td><% if task.status %></td>
+          FINALIZADA(PREENCHER)
+        <%else%>
+          EM ANDAMENTO(PREENCHER)
+        <%end%>
         <td><%= task.user.name %></td>
       </tr>
     <%end%>
