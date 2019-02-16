@@ -157,5 +157,24 @@ $black-2: #000000;
     }
     .h3-title {
         font-family: Ikaros;
+        margin: 30px;
+        padding-top: 20px;
+    }
+    .add-goal {
+        background-color: $blue-7;
+        h3 {
+            color: $white-1;
+        }
+        .field {
+            color: $white-1;
+        }
+        input {
+            color: $black-2;
+            margin-left: 20px;
+        }
+        select {
+            color: $black-2;
+            margin-left: 20px;
+        }
     }
 }
