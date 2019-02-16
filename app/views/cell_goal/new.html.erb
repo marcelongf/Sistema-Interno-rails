@@ -1,18 +1,23 @@
-<%= form_tag create_cellgoal_path do %>
-    <div class='field'>
-        Titulo:<%= text_field_tag :title %>
-    </div>
-    <div class='field'>
-        Descrição:<%= text_area_tag :description %>
-    </div>
+<div class="container container-img-footprint">
+    <%= link_to  image_tag('back.svg'), cell_path(:id => params[:id]) %>
+    <h1 class="h1-new-cellgoal">Nova meta</h1>
 
-    <%= hidden_field_tag :status, false %>
+    <%= form_tag create_cellgoal_path do %>
+        <div class='field'>
+            Titulo: <br> <%= text_field_tag :title %>
+        </div>
+        <div class='field'>
+            Descrição: <br> <%= text_area_tag :description %>
+        </div>
 
-    <%= hidden_field_tag :cell_id, @cell.id %>
+        <%= hidden_field_tag :status, false %>
 
-    <div class='action'>
-        <%= submit_tag %>
-    </div>
-<% end %>
+        <%= hidden_field_tag :cell_id, @cell.id %>
 
-<%= link_to  "Voltar", cell_path(:id => params[:id]) %>
+        <div class='action'>
+            <%= submit_tag "Salvar"%>
+        </div>
+    <% end %>
+
+    
+</div>
