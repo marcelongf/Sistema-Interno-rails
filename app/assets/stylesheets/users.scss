@@ -76,5 +76,17 @@ $black-1: #171E22;
                 font-size: 18px;
             }
         }
+        tbody {
+            tr {
+                td {
+                    .user-icon {
+                        padding-top: 0px;
+                        width: 30px;
+                    }
+                }
+            }
+        }
     }
+
+
 }
