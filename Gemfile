@@ -7,7 +7,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'autoprefixer-rails'
 
-gem 'trix', '~> 0.9.0'
+gem 'tinymce-rails'
 
 gem 'devise'
 

@@ -1,23 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @article.title %>
+</h1>
+
+<p>
+  <%= @article.description.html_safe %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @article.tag %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @article.user %>
+  <strong>Pertence a:</strong>
+  <%= link_to @article.user.name, @article.user %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
