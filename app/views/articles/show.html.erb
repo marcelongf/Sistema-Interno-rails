@@ -1,24 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
+<h1>
   <%= @article.title %>
+</h1>
+
+<p>
+  <%= @article.description.html_safe %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @article.description %>
+  <strong>Pertence a:</strong>
+  <%= link_to @article.user.name, @article.user %>
 </p>
 
-<p>
-  <strong>Tag:</strong>
-  <%= @article.tag %>
-</p>
+<% @article.article_comments.each do |comment| %>
+  <%= comment.user.name %> comentou: <%= comment.content %>
+  <br/>
+<%end%>
 
-<p>
-  <strong>User:</strong>
-  <%= @article.user %>
-</p>
+<%= form_with(url: create_article_comment_path) do |form| %>
+  <%= form.hidden_field :article_id, :value => @article.id %>
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.text_field :content %>
+  <%= form.submit %>
+<%end%>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<% if (@article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')%>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+  <%= link_to 'Back', articles_path %>
+<%end%>

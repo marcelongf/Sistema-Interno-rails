@@ -5,21 +5,24 @@
   <table class="table">
     <% @posts.each do |post| %>
         <h2><%= link_to post.title, post %></h2>
+        <br/>
         <p><%= post.description %></p>
         <p> Postado por: <%= link_to post.user.name, post.user %></p>
+        <% post.post_comments.each do |comment| %>
+          <%= comment.user.name %> comentou: <%= comment.content %>
+          <br/>
+        <%end%>
+        <br/>
         <%= form_with(url: create_post_comment_path) do |form| %>
           <%= form.hidden_field :post_id, :value => post.id %>
           <%= form.hidden_field :user_id, :value => current_user.id %>
           <%= form.text_field :content %>
           <%= form.submit %>
         <%end%>
-        <% if current_user == post.user %>
+        <br/>
+        <% if (current_user == post.user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')%>
           <%= link_to 'Edit', edit_post_path(post) %>
           <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%end%>
-        <% post.post_comments.each do |comment| %>
-          <%= comment.user.name %> comentou: <%= comment.content %>
-          <br/>
         <%end%>
     <% end %>
   </table>
@@ -29,3 +32,4 @@
   <%= link_to 'Criar Nova Postagem', new_post_path %>
 
 </div>
+

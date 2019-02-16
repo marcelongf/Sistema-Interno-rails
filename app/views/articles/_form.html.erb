@@ -23,19 +23,10 @@
     <div class="form-group">
       <label for="comment">
       <%= form.label :description, "Descrição" %>
-      <%= form.text_area :description, class: "form-control" %>
-      <label>
-    </div>
-  </div>
-
-  <div class="field">
-    <div class="form-group">
-      <label for="inputsm"><%= form.label :tag, "Tag" %></br>
-        <%= form.text_field :tag, class: "form-control" %>
+      <%= form.text_area :description, class: "form-control", class: "tinymce" %>
       </label>
     </div>
   </div>
-
  
   <%= form.hidden_field :user_id,:value => current_user.id, class: "form-control" %>
 
@@ -44,3 +35,4 @@
     <%= form.submit value: "Criar", class: "btn btn-primary" %>
   </div>
 <% end %>
+<%= tinymce %>
