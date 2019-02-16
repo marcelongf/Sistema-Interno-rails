@@ -10,6 +10,7 @@
         <p> Postado por: <%= link_to post.user.name, post.user %></p>
         <%= link_to "Like", like_post_path(post), method: :put, remote: :true %>
         <span class="likes-count"><%= post.get_upvotes.size %></span>
+        <br/>
         <% post.post_comments.each do |comment| %>
           <%= comment.user.name %> comentou: <%= comment.content %>
           <br/>

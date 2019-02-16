@@ -7,6 +7,8 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.4.0'
 gem 'autoprefixer-rails'
 
+gem 'ransack'
+
 gem 'tinymce-rails'
 
 gem 'acts_as_votable', '~> 0.12.0'
