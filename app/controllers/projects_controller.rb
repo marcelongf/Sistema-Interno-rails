@@ -68,6 +68,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def addNewMember
+    ProjectUser.create({:user_id => params[:user_id], :project_id => params[:project_id]})
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
