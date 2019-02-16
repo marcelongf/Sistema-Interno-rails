@@ -1,26 +1,37 @@
 <div class="container container-img-footprint">
     <h1 class="h1-my-tasks"> Minha tarefas </h1>
 
-    <h3>Tarefas da celula</h3>
-    <% @undone_cell_tasks.each do |task| %>
-        <%=task.description %>
-        <%= form_with(url: update_cell_task_path) do |form| %>
-            <%= form.hidden_field :id, :value => task.id %>
-            <%= form.submit %>
-        <% end %>
-    <% end %>
+    <div class="row">
+        <div class="col-sm-6 text-center">
+            <h3>Tarefas da célula</h3>
+            <% @undone_cell_tasks.each do |task| %>
+                <%=task.description %>
+                <%= form_with(url: update_cell_task_path) do |form| %>
+                    <%= form.hidden_field :id, :value => task.id %>
+                    <%= form.submit "Concluído", :class => 'btn btn-sucess' %>
+                <% end %>
+            <% end %>           
+        </div>
+        <div class="col-sm-6 text-center">
+            <h3> Tarefas da diretoria </h3>
+            <% @undone_dir_tasks.each do |task| %>
+                <%= task.description %>
+                <%= form_with(url: update_dir_task_path) do |form| %>
+                    <%= form.hidden_field :id, :value => task.id %>
+                    <%= form.submit "Concluído", :class => 'btn btn-sucess' %>
+                <% end %>
+            <% end %>        
+        </div>
+    </div>
 
-    <h3> Tarefas da diretoria </h3>
-    <% @undone_dir_tasks.each do |task| %>
-        <%= task.description %>
-        <%= form_with(url: update_dir_task_path) do |form| %>
-            <%= form.hidden_field :id, :value => task.id %>
-            <%= form.submit %>
-        <% end %>
-    <% end %>
 
-    <h2> Tarefas já Concluídas: </h2>
-    <table>
+
+    
+
+    
+
+    <h2 class="mt-5"> Tarefas já concluídas: </h2>
+    <table class="table">
         <% @done_cell_tasks.each do |task| %>
             <tr>
                 <td><%= task.description %></td>
