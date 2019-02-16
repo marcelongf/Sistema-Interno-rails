@@ -1,28 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="container container-img-footprint">
+  <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+  <h1 class="h1-users">Usuário</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Kind</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.kind %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Tipo</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<%= link_to 'New User', new_user_path %>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.kind %></td>
+          <td><%= link_to image_tag('show.svg'), user, class:"user-icon" %></td>
+          <td><%= link_to image_tag('edit.svg'), edit_user_path(user), class:"user-icon" %></td>
+          <td><%= link_to image_tag('destroy.svg'), user, method: :delete, data: { confirm: 'Deseja realmente excluir?' }, class:"user-icon" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div class="actions text-right">
+    <%= link_to 'Novo usuário', new_user_path, class:"btn btn-primary btn-new-dir" %>
+  </div>
+</div>

@@ -1,12 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <h1 class="articles">
+    <%= @article.title %>
+  </h1>
 
-<h1>
-  <%= @article.title %>
-</h1>
+  <p>
+    <%= @article.description.html_safe %>
+  </p>
 
-<p>
-  <%= @article.description.html_safe %>
-</p>
+  <p>
+    <strong>Pertence a:</strong>
+    <%= link_to @article.user.name, @article.user %>
+  </p>
 
 <p>
   <strong>Pertence a:</strong>
@@ -21,14 +26,8 @@
   <br/>
 <%end%>
 
-<%= form_with(url: create_article_comment_path) do |form| %>
-  <%= form.hidden_field :article_id, :value => @article.id %>
-  <%= form.hidden_field :user_id, :value => current_user.id %>
-  <%= form.text_field :content %>
-  <%= form.submit %>
-<%end%>
-
-<% if (@article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')%>
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-  <%= link_to 'Back', articles_path %>
-<%end%>
+  <% if (@article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')%>
+    <%= link_to 'Editar', edit_article_path(@article) %> |
+    <%= link_to 'Voltar', articles_path %>
+  <%end%>
+</div>

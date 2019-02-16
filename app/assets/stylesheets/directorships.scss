@@ -11,8 +11,9 @@ $blue-1: #599bca;
 $blue-2: #8080ff;
 $blue-3: #4d4dff;
 $blue-4: #b1d2e6;
-$blue-5: #3A599F;
-$blue-6: #4E99CE;
+$blue-5: #3a599f;
+$blue-6: #4e99ce;
+$blue-7: #3b2063;
 $white-1: #fefefe;
 $white-2: #f3ebee;
 $gray-1: #e4e4e4;
@@ -88,6 +89,93 @@ $black-2: #000000;
     .h1-goals::after {
         content: "";
         width: 470px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-new-cellgoal::after {
+        content: "";
+        width: 330px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-edt-cell::after {
+        content: "";
+        width: 360px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-new-cell::after {
+        content: "";
+        width: 330px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-users::after {
+        content: "";
+        width: 200px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-edit-user::after {
+        content: "";
+        width: 400px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-new-user::after {
+        content: "";
+        width: 360px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
+    .h1-new-goal::after {
+        content: "";
+        width: 360px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+    .h1-goal::after {
+        content: "";
+        width: 160px;
         height: 30px;
         background-color: $blue-6;
         position: absolute;
@@ -200,5 +288,16 @@ $black-2: #000000;
 
     .img-goals {
         width: 100px;
+    }
+    .text-right {
+        padding-right: 4%;
+    }
+    form {
+        .text-right {
+            .btn-m {
+                margin-bottom: 20px;
+                font-size: 18px;
+            }
+        }
     }
 }

@@ -12,35 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :Nome %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
+    <%= form.label :Email %>
     <%= form.text_field :email %>
   </div>
+  <div class="field select">
+    <strong>Tipo de usuário:</strong>
+    <%= select(:user, :kind, [
+      ['Assessor', 'member'],
+      ['Diretor de GP', 'gp_director'],
+      ['Diretor', 'director'],
+      ['Diretor de Projeto', 'project_director'],
+      ['Gerente de PMO', 'pmo_manager'],
+      ['Gerente de célula', 'cell_manager']
+    ]) %>
+    <br/>
+  </div>
+  <div class="field">
+    <strong>Célula:</strong>
+    <%= select(:user, :cell_id, cells) %>
+  </div>
+  <div class="field">
+    <strong>Diretoria:</strong>
+    <%= select(:user, :directorship_id, dirs) %>
+  </div>
 
-  Tipo de usuário:
-  <%= select(:user, :kind, [
-    ['Assessor', 'member'],
-    ['Diretor de GP', 'gp_director'],
-    ['Diretor', 'director'],
-    ['Diretor de Projeto', 'project_director'],
-    ['Gerente de PMO', 'pmo_manager'],
-    ['Gerente de celula', 'cell_manager']
-  ]) %>
-  <br/>
-
-
-  Célula:
-  <%= select(:user, :cell_id, cells) %>
-
-  <br/>
-  Diretoria:
-  <%= select(:user, :directorship_id, dirs) %>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= form.submit "Salvar", class:"btn btn-primary btn-new-dir" %>
   </div>
 <% end %>

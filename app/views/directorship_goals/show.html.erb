@@ -1,19 +1,20 @@
-<div class="container">
+<div class="container container-img-footprint">
   <%= link_to image_tag('back.svg'), directorship_path(:id => @directorshipGoal.directorship.id) %>
-  <h1 class="h1-goals">Página da meta</h1>
-  <h2><%= @directorshipGoal.title %></h2>
+  <h1 class="h1-goal">meta</h1>
+
+  <h2 class="text-center"><%= @directorshipGoal.title %></h2>
 
   <p>
       <%= @directorshipGoal.description %>
   </p>
 
   <% if @directorshipGoal.status %>
-      <h4>Status: Finalizada</h4>
+      <h4 class="text-center">Status: Finalizada</h4>
   <%else%>
-      <h4>Status: Em Andamento</h4>
+      <h4 class="text-center">Status: Em Andamento</h4>
   <%end%>
 
-  <table>
+  <table class="table">
       <thead>
           <th>Tarefa:</th>
           <th>Status:</th>
@@ -34,31 +35,31 @@
           <%end%>
       </tbody>
   </table>
--------------------------------------------
-  <h3>Adicionar nova Tarefa:</h3>
+  <div class="add-goal">
+    <h3 class="mt-5 h3-title">Adicionar nova Tarefa:</h3>
 
-  <% directorship_task = @directorshipTask %>
-  <%= form_with(url: new_directorship_task_path) do |form| %>
+    <% directorship_task = @directorshipTask %>
+    <%= form_with(url: new_directorship_task_path) do |form| %>
 
-    <div class="field">
-      Descrição:<%= form.text_field :description %>
-    </div>
+      <div class="field">
+        Descrição:<%= form.text_field :description, class: "mt-5" %>
+      </div>
 
-    <div class="field">
-      <%= form.hidden_field :directorship_goal_id, :value => @directorshipGoal.id %>
-    </div>
+      <div class="field">
+        <%= form.hidden_field :directorship_goal_id, :value => @directorshipGoal.id %>
+      </div>
 
-    <div class="field">
-      <%= form.hidden_field :status, :value => false %>
-    </div>
+      <div class="field">
+        <%= form.hidden_field :status, :value => false, class: "mt-5" %>
+      </div>
 
-    <div class="field">
-      Designar para:<%= form.select :user_id, @users %>
-    </div>
+      <div class="field">
+        Designar para:<%= form.select :user_id, @users %>
+      </div>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
+      <div class="actions text-right">
+        <%= form.submit "Salvar", class:"btn btn-primary btn-new-dir btn-m" %>
+      </div>
+    <% end %>
 
 </div>

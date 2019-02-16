@@ -3,7 +3,7 @@
         <%= link_to image_tag('back.svg'), cells_path %>
         <%= link_to image_tag('show.svg', class:"img-show"), @cell, class:"text-right" %>
     </div>
-    <h1>Editar célula</h1>
+    <h1 class="h1-edt-cell">Editar célula</h1>
 
     <%= render 'form', cell: @cell, managers: @managers, dirs: @directorships %>
 </di

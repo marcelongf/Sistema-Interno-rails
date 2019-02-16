@@ -1,63 +1,67 @@
-<h2><%= @cellGoal.title %></h2>
+<div class="container container-img-footprint">
+  <%= link_to image_tag('back.svg'), cell_path(:id => @cellGoal.cell.id) %>
+  <h1 class="h1-goal">Meta</h1>
 
-<p>
-    <%= @cellGoal.description %>
-</p>
+  <h2 class="text-center"><%= @cellGoal.title %></h2>
 
-<% if @cellGoal.status %>
-    <h4>Status: Finalizada</h4>
-<%else%>
-    <h4>Status: Em Andamento</h4>
-<%end%>
+  <p>
+      <%= @cellGoal.description %>
+  </p>
 
-<table>
-    <thead>
-        <th>Tarefa:</th>
-        <th>Status:</th>
-        <th>Designada a:</th>
-    </thead>
-    <tbody>
-        <% @cellGoal.cell_tasks.each do |task| %>
-            <tr>
-                <td><%= task.description %></td>
-                <td>
-                <% if task.status %>
-                  FINALIZADA(PREENCHER)
-                <%else%>
-                  EM ANDAMENTO(PREENCHER)
-                <%end%>
-                </td>
-                <td><%= task.user.name %></td>
-            </tr>
-        <%end%>
-    </tbody>
-</table>
+  <% if @cellGoal.status %>
+      <h4 class="text-center">Status: Finalizada</h4>
+  <%else%>
+      <h4 class="text-center">Status: Em Andamento</h4>
+  <%end%>
 
-<h3>Adicionar nova Tarefa:</h3>
+  <table class="table">
+      <thead>
+          <th>Tarefa:</th>
+          <th>Status:</th>
+          <th>Designada a:</th>
+      </thead>
+      <tbody>
+          <% @cellGoal.cell_tasks.each do |task| %>
+              <tr>
+                  <td><%= task.description %></td>
+                  <td>
+                  <% if task.status %>
+                    FINALIZADA(PREENCHER)
+                  <%else%>
+                    EM ANDAMENTO(PREENCHER)
+                  <%end%>
+                  </td>
+                  <td><%= task.user.name %></td>
+              </tr>
+          <%end%>
+      </tbody>
+  </table>
+  <div class="add-goal">
+    <h3 class="mt-5 h3-title">Adicionar nova Tarefa:</h3>
 
-<% cell_task = @cellTask %>
-<%= form_with(url: new_cell_task_path) do |form| %>
+    <% cell_task = @cellTask %>
+    <%= form_with(url: new_cell_task_path) do |form| %>
 
-  <div class="field">
-    Descrição:<%= form.text_field :description %>
+      <div class="field">
+        Descrição:<%= form.text_field :description, class: "mt-5" %>
+      </div>
+
+      <div class="field">
+        <%= form.hidden_field :cell_goal_id, :value => @cellGoal.id %>
+      </div>
+
+      <div class="field">
+        <%= form.hidden_field :status, :value => false, class: "mt-5" %>
+      </div>
+
+      <div class="field">
+        Designar para:<%= form.select :user_id, @users %>
+      </div>
+
+      <div class="actions text-right">
+        <%= form.submit "Salvar", class:"btn btn-primary btn-new-dir btn-m" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.hidden_field :cell_goal_id, :value => @cellGoal.id %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :status, :value => false %>
-  </div>
-
-  <div class="field">
-    Designar para:<%= form.select :user_id, @users %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-
-<%= link_to 'Voltar', cell_path(:id => @cellGoal.cell.id) %>
-
+  
+</div>
