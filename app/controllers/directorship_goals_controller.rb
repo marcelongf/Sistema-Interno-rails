@@ -15,6 +15,10 @@ class DirectorshipGoalsController < ApplicationController
         task.save!
     end
 
+    def updateTask
+        DirectorshipTask.find(params[:id]).update(:status => true)
+    end
+
     def show
         @directorshipTask = DirectorshipTask.new
         @directorshipGoal = DirectorshipGoal.find(params[:id])

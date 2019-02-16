@@ -20,6 +20,11 @@ Rails.application.routes.draw do
 
   post '/addnewmembertoproject', to: 'projects#addNewMember', as: 'new_member'
 
+  get '/mytasks', to: 'users#myTasks', as: 'mytasks'
+  post 'updatecelltask', to: 'cell_goal#updateTask', as: 'update_cell_task'
+  post 'updatedirtask', to: 'directorship_goals#updateTask', as: 'update_dir_task'
+
+
   get '/skilltree', to: 'users#skilltree', as: 'skilltree'
 
   resources :users
