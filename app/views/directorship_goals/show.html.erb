@@ -1,19 +1,20 @@
 <div class="container container-img-footprint">
   <%= link_to image_tag('back.svg'), directorship_path(:id => @directorshipGoal.directorship.id) %>
   <h1 class="h1-goal">meta</h1>
-  <h2><%= @directorshipGoal.title %></h2>
+
+  <h2 class="text-center"><%= @directorshipGoal.title %></h2>
 
   <p>
       <%= @directorshipGoal.description %>
   </p>
 
   <% if @directorshipGoal.status %>
-      <h4>Status: Finalizada</h4>
+      <h4 class="text-center">Status: Finalizada</h4>
   <%else%>
-      <h4>Status: Em Andamento</h4>
+      <h4 class="text-center">Status: Em Andamento</h4>
   <%end%>
 
-  <table>
+  <table class="table">
       <thead>
           <th>Tarefa:</th>
           <th>Status:</th>
@@ -34,7 +35,6 @@
           <%end%>
       </tbody>
   </table>
--------------------------------------------
   <h3>Adicionar nova Tarefa:</h3>
 
   <% directorship_task = @directorshipTask %>
