@@ -173,6 +173,16 @@ $black-2: #000000;
         top: 28px;
         z-index: -1;
     }
+    .h1-goal::after {
+        content: "";
+        width: 160px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
 
     .table {
         tr {
@@ -281,5 +291,13 @@ $black-2: #000000;
     }
     .text-right {
         padding-right: 4%;
-    } 
+    }
+    form {
+        .text-right {
+            .btn-m {
+                margin-bottom: 20px;
+                font-size: 18px;
+            }
+        }
+    }
 }
