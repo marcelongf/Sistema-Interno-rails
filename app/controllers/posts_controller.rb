@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like]
 
   # GET /posts
   # GET /posts.json
@@ -65,6 +65,17 @@ class PostsController < ApplicationController
     @comment = PostComment.new(post_comment_params)
     @comment.save
   end
+
+
+  #Metodos do sistema de like
+  def like
+    if !current_user.liked? @post 
+      @post.liked_by current_user 
+    elsif current_user.liked? @post
+      @post.unliked_by current_user
+    end
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

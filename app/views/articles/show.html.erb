@@ -13,17 +13,18 @@
     <%= link_to @article.user.name, @article.user %>
   </p>
 
-  <% @article.article_comments.each do |comment| %>
-    <%= comment.user.name %> comentou: <%= comment.content %>
-    <br/>
-  <%end%>
-
-  <%= form_with(url: create_article_comment_path) do |form| %>
-    <%= form.hidden_field :article_id, :value => @article.id %>
-    <%= form.hidden_field :user_id, :value => current_user.id %>
-    <%= form.text_field :content %>
-    <%= form.submit %>
-  <%end%>
+<p>
+  <strong>Pertence a:</strong>
+  <%= link_to @article.user.name, @article.user %>
+</p>
+<br>
+<%= link_to "Like", like_article_path(@article), method: :put, remote: :true %>
+<span class="likes-count"><%= @article.get_upvotes.size %></span>
+<br>
+<% @article.article_comments.each do |comment| %>
+  <%= comment.user.name %> comentou: <%= comment.content %>
+  <br/>
+<%end%>
 
   <% if (@article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')%>
     <%= link_to 'Editar', edit_article_path(@article) %> |

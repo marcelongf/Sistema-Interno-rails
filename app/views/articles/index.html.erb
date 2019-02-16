@@ -7,6 +7,9 @@
           <%= article.description.html_safe %>
           Escrito por:<%= link_to article.user.name, article.user %>
           <br/>
+          <%= link_to "Like", like_article_path(article), method: :put, remote: :true %>
+          <span class="likes-count"><%= article.get_upvotes.size %></span>
+          <br/>
           <% if (article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')  %>
             <%= link_to 'Edit', edit_article_path(article) %> |
             <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
