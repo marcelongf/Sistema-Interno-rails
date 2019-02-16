@@ -8,7 +8,7 @@
                 <%=task.description %>
                 <%= form_with(url: update_cell_task_path) do |form| %>
                     <%= form.hidden_field :id, :value => task.id %>
-                    <%= form.submit "Concluído", :class => 'btn btn-sucess' %>
+                    <%= form.submit "Concluído", :class => 'btn' %>
                 <% end %>
             <% end %>           
         </div>
@@ -18,17 +18,12 @@
                 <%= task.description %>
                 <%= form_with(url: update_dir_task_path) do |form| %>
                     <%= form.hidden_field :id, :value => task.id %>
-                    <%= form.submit "Concluído", :class => 'btn btn-sucess' %>
+                    <%= form.submit "Concluído", :class => 'btn' %>
                 <% end %>
             <% end %>        
         </div>
     </div>
 
-
-
-    
-
-    
 
     <h2 class="mt-5"> Tarefas já concluídas: </h2>
     <table class="table">
