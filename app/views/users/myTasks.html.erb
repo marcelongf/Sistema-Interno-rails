@@ -1,36 +1,37 @@
-<h1> Minha tarefas </h1>
+<div class="container container-img-footprint">
+    <h1 class="h1-my-tasks"> Minha tarefas </h1>
 
-<h3>Tarefas da celula</h3>
-<% @undone_cell_tasks.each do |task| %>
-    <%=task.description %>
-    <%= form_with(url: update_cell_task_path) do |form| %>
-        <%= form.hidden_field :id, :value => task.id %>
-        <%= form.submit %>
+    <h3>Tarefas da celula</h3>
+    <% @undone_cell_tasks.each do |task| %>
+        <%=task.description %>
+        <%= form_with(url: update_cell_task_path) do |form| %>
+            <%= form.hidden_field :id, :value => task.id %>
+            <%= form.submit %>
+        <% end %>
     <% end %>
-<% end %>
 
-<h3> Tarefas da diretoria </h3>
-<% @undone_dir_tasks.each do |task| %>
-    <%= task.description %>
-    <%= form_with(url: update_dir_task_path) do |form| %>
-        <%= form.hidden_field :id, :value => task.id %>
-        <%= form.submit %>
+    <h3> Tarefas da diretoria </h3>
+    <% @undone_dir_tasks.each do |task| %>
+        <%= task.description %>
+        <%= form_with(url: update_dir_task_path) do |form| %>
+            <%= form.hidden_field :id, :value => task.id %>
+            <%= form.submit %>
+        <% end %>
     <% end %>
-<% end %>
 
-<h2> Tarefas já Concluídas: </h2>
-<table>
-    <% @done_cell_tasks.each do |task| %>
-        <tr>
-            <td><%= task.description %></td>
-            <td>Concluída em: <%= task.updated_at %></td>
-        </tr>
-    <%end%>
-    <% @done_dir_tasks.each do |task| %>
-        <tr>
-            <td><%= task.description %></td>
-            <td>Concluída em: <%= task.updated_at %></td>
-        </tr>
-    <%end%>
-</table>
-
+    <h2> Tarefas já Concluídas: </h2>
+    <table>
+        <% @done_cell_tasks.each do |task| %>
+            <tr>
+                <td><%= task.description %></td>
+                <td>Concluída em: <%= task.updated_at %></td>
+            </tr>
+        <%end%>
+        <% @done_dir_tasks.each do |task| %>
+            <tr>
+                <td><%= task.description %></td>
+                <td>Concluída em: <%= task.updated_at %></td>
+            </tr>
+        <%end%>
+    </table>
+</div>
