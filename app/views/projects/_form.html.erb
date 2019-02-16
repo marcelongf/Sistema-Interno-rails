@@ -14,9 +14,7 @@
   <div class="field">
     <div class="form-group">
       <label for="sel1"><%= form.label :pmo, "Pmo"%></label>
-        <select class="form-control" id="sel1">
-          <%= form.select :pmo, pmos %>
-        </select>
+      <%= form.select :pmo, pmos, class: "form-control", id: "sel1" %>
     </div>    
   </div>
 
