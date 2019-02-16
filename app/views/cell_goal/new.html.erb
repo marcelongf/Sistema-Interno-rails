@@ -1,13 +1,13 @@
 <div class="container container-img-footprint">
     <%= link_to  image_tag('back.svg'), cell_path(:id => params[:id]) %>
-    <h1>Nova meta</h1>
+    <h1 class="h1-new-cellgoal">Nova meta</h1>
 
     <%= form_tag create_cellgoal_path do %>
         <div class='field'>
-            Titulo:<%= text_field_tag :title %>
+            Titulo: <br> <%= text_field_tag :title %>
         </div>
         <div class='field'>
-            Descrição:<%= text_area_tag :description %>
+            Descrição: <br> <%= text_area_tag :description %>
         </div>
 
         <%= hidden_field_tag :status, false %>
@@ -15,7 +15,7 @@
         <%= hidden_field_tag :cell_id, @cell.id %>
 
         <div class='action'>
-            <%= submit_tag %>
+            <%= submit_tag "Salvar"%>
         </div>
     <% end %>
 

@@ -97,6 +97,17 @@ $black-2: #000000;
         z-index: -1;
     }
 
+    .h1-new-cellgoal::after {
+        content: "";
+        width: 350px;
+        height: 30px;
+        background-color: $blue-6;
+        position: absolute;
+        display: block;
+        top: 28px;
+        z-index: -1;
+    }
+
     .table {
         tr {
             th {
