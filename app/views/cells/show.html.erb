@@ -41,7 +41,7 @@
     <div class="card">
       <div class="card-body col-md-12 text-center">
         <strong>Nome</strong> <br> <p class="text-goal"> <%= goal.title %> </p> <br>
-        <strong>Atingida</strong> <br> <p class="text-goal"> <%= goal.status %> </p> <br>
+        <strong>Atingida</strong> <br> <p class="text-goal"> <%if goal.status%>Sim<%else%>Não<%end%> </p> <br>
         <strong>Descrição</strong> <br> <p class="text-goal"> <%= goal.description %> </p> <br>
         <%= link_to 'Exibir meta', show_cellgoal_path(:id => goal.id), class:"btn btn-primary btn-goal" %>
       </div>
