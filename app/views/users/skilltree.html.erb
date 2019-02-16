@@ -1,24 +1,27 @@
-<h1>Árvore de Habilidades de <%= @user.name %></h1>
+<div class="container container-user">
+    <%= link_to  image_tag('back.svg', class:"back"), @user %>
+    <h1 class="h1-skilltree">Árvore de Habilidades de <%= @user.name %></h1>
 
 
-<table>
-    <thead>
-        <th>Habilidade</th>
-        <th>Descrição</th>
-    </thead>
-    <tbody>
-        <% @user.skills.each do |skill| %>
-            <tr>
-                <td><%= skill.name %></td>
-                <td><%= skill.description %></td>
-            </tr>
-        <%end%>
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <th>Habilidade</th>
+            <th>Descrição</th>
+        </thead>
+        <tbody>
+            <% @user.skills.each do |skill| %>
+                <tr>
+                    <td><%= skill.name %></td>
+                    <td><%= skill.description %></td>
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
 
-<br/>
+    <br/>
 
-<%= link_to  "Voltar", @user %> | 
-<% if current_user == @user %>
-    <%= link_to  "Adicionar Habilidade", new_skill_path(:id => @user.id) %>
-<%end%>
+    
+    <% if current_user == @user %>
+        <%= link_to  "Adicionar Habilidade", new_skill_path(:id => @user.id) %>
+    <%end%>
+</div>
