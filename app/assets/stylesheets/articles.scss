@@ -30,6 +30,10 @@
     display: block;
     }
 
+    .row .content {
+        background-color: #fafafa;
+    }
+
     a {
         font-size: 2em;
     }
@@ -38,6 +42,16 @@
         background-color: rgba(0, 0, 0, 0);
         text-decoration: none;
     }
+
+    p {
+        font-size: 1em;
+    }
+
+    .link-user {
+        font-size: 1.25em;
+    }
+
+        
 }
 
 th {

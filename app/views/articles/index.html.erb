@@ -2,19 +2,23 @@
 
 <div class="container">
   <h1 class="articles">Artigos</h1>
-      <% @articles.each do |article| %>
-          <%= link_to article.title, article %>
-          <%= article.description.html_safe %>
-          Escrito por:<%= link_to article.user.name, article.user %>
-          <br/>
-          <%= link_to "Like", like_article_path(article), method: :put, remote: :true %>
-          <span class="likes-count"><%= article.get_upvotes.size %></span>
-          <br/>
-          <% if (article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')  %>
-            <%= link_to 'Edit', edit_article_path(article) %> |
-            <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-      <% end %>
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="content">
+        <%= link_to article.title, article, class: "h1" %>
+        <%= article.description.html_safe%>
+        Escrito por: <%= link_to article.user.name, article.user, class: "link-user" %>
+        <br/>
+        <%= link_to "Like", like_article_path(article), method: :put, remote: :true, class: "glyphicon glyphicon-thumbs-up" %>
+        <span class="likes-count"><%= article.get_upvotes.size %></span>
+        <br/>
+        <% if (article.user == current_user) || (current_user.kind == 'gp_director' || 'director' || 'project_director')  %>
+          <%= link_to 'Edit', edit_article_path(article), class: "glyphicon glyphicon-edit" %> |
+          <%= link_to 'Destroy', article, method: :delete, class: "glyphicon glyphicon-remove-circle", data: { confirm: 'Tem certeza que deseja excluir?' } %></br>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
   <br>
 
   <%= link_to 'Criar novo artigo', new_article_path %>

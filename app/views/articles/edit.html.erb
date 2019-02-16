@@ -1,6 +1,8 @@
-<h1>Editing Article</h1>
-
-<%= render 'form', article: @article %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<div class="container">
+  <h1 class="editing-article">Editando Artigo</h1>
+  <div class="form-group">
+    <%= render 'form', article: @article %>
+  </div>
+  <%= link_to 'Ver artigo', @article %> |
+  <%= link_to 'Voltar', articles_path %>
+</div>
