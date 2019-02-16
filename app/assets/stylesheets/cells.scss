@@ -141,6 +141,15 @@ $black-2: #000000;
                 padding: 10px;
                 border: 0px;
             }
+            label {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
         }
+    }
+    .go-top {
+        padding: 20px;
+    }
+    .img-responsive {
+        width: 40px;
     }
 }
