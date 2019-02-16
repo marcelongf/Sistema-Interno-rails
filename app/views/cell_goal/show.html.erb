@@ -36,32 +36,32 @@
           <%end%>
       </tbody>
   </table>
+  <div class="add-goal">
+    <h3 class="mt-5 h3-title">Adicionar nova Tarefa:</h3>
 
-  <h3>Adicionar nova Tarefa:</h3>
+    <% cell_task = @cellTask %>
+    <%= form_with(url: new_cell_task_path) do |form| %>
 
-  <% cell_task = @cellTask %>
-  <%= form_with(url: new_cell_task_path) do |form| %>
+      <div class="field">
+        Descrição:<%= form.text_field :description, class: "mt-5" %>
+      </div>
 
-    <div class="field">
-      Descrição:<%= form.text_field :description %>
-    </div>
+      <div class="field">
+        <%= form.hidden_field :cell_goal_id, :value => @cellGoal.id %>
+      </div>
 
-    <div class="field">
-      <%= form.hidden_field :cell_goal_id, :value => @cellGoal.id %>
-    </div>
+      <div class="field">
+        <%= form.hidden_field :status, :value => false, class: "mt-5" %>
+      </div>
 
-    <div class="field">
-      <%= form.hidden_field :status, :value => false %>
-    </div>
+      <div class="field">
+        Designar para:<%= form.select :user_id, @users %>
+      </div>
 
-    <div class="field">
-      Designar para:<%= form.select :user_id, @users %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-  <% end %>
-
+      <div class="actions text-right">
+        <%= form.submit "Salvar", class:"btn btn-primary btn-new-dir btn-m"%>
+      </div>
+    <% end %>
+  </div>
   
 </div>
