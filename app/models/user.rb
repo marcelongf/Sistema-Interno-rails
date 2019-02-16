@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :post_comments
   has_many :directorship_tasks
   has_many :cell_tasks
+  acts_as_voter
 
 
   enum kind: { 

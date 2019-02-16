@@ -25,11 +25,23 @@ Rails.application.routes.draw do
   post 'updatedirtask', to: 'directorship_goals#updateTask', as: 'update_dir_task'
 
 
+  post 'likespost', to: 'posts#like', as: 'post_like'
+  post 'dislikepost', to: 'post#dislike', as: 'post_dislike'
+
+
   get '/skilltree', to: 'users#skilltree', as: 'skilltree'
 
   resources :users
-  resources :posts
-  resources :articles
+  resources :posts do
+    member do 
+      put 'like' => 'posts#like'
+    end
+  end
+  resources :articles do
+    member do 
+      put 'like' => 'articles#like'
+    end
+  end
   resources :skills
 
   resources :projects
