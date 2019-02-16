@@ -10,6 +10,8 @@ $blue-3: #4d4dff;
 $blue-4: #b1d2e6;
 $blue-5: #3A599F;
 $blue-6: #4E99CE;
+$blue-7: #3b2063;
+$blue-8: #d8d8d8;
 $white-1: #fefefe;
 $white-2: #f3ebee;
 $gray-1: #e4e4e4;
@@ -87,6 +89,18 @@ $black-1: #171E22;
             }
         }
     }
+}
 
-
+.container{
+    .field {
+        strong {
+            font-size: 28px;
+        }
+        select {
+            background-color: $blue-8;
+            border: 0px;
+            padding: 10px;
+            width: 30%;
+        }
+    }
 }
