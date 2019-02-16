@@ -34,22 +34,22 @@
     <%end%>
   </table>
 
+  
   <div class="card-group">
+    <h2>Metas</h2>
     <% @cell.cell_goals.each do |goal| %>
     <div class="card">
-      <div class="card-body">
-        <strong>Nome:</strong> <%= goal.title %><br>
-        <strong>Atingida:</strong> <%= goal.status %><br>
-        <strong>Descrição:</strong> <%= goal.description %><br>
+      <div class="card-body col-md-12 text-center">
+        <strong>Nome</strong> <br> <p class="text-goal"> <%= goal.title %> </p> <br>
+        <strong>Atingida</strong> <br> <p class="text-goal"> <%= goal.status %> </p> <br>
+        <strong>Descrição</strong> <br> <p class="text-goal"> <%= goal.description %> </p> <br>
         <%= link_to 'Exibir meta', show_cellgoal_path(:id => goal.id), class:"btn btn-primary btn-goal" %>
       </div>
     </div>
     <%end%>
   </div>
-  
 
   <div class="actions text-center">
-    <%= link_to  "Criar nova meta", cellgoal_path(:id => @cell.id), class: "btn btn-primary btn-new-dir" %>
+    <%= link_to  "Criar nova meta", cellgoal_path(:id => @cell.id), class: "btn btn-primary btn-new-dir btn-new-goal" %>
   </div>
-
 </div>
